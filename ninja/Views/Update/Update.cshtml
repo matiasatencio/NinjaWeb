@@ -1,0 +1,20 @@
+﻿@using GridMvc.Html
+@using ninja.Models
+@model ninja.Models.InvoiceViewModels
+
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2>Update</h2>
+@using (Html.BeginForm("Save", "Update", FormMethod.Post))
+{
+    @Html.LabelFor(c => c.Id, "Id actual: " + Model.Id.ToString(), new { name = "Id" })<br />
+    @Html.HiddenFor(c => c.Id)
+    @Html.LabelFor(c => c.Type, "Type actual: " + Model.Type, new { name = "Id" })<br />
+    @Html.HiddenFor(c => c.Type)
+    @Html.Label("lblNuevoId", "Nuevo Id: ") @Html.TextBox("newId")<br />
+    @Html.Label("lblNuevoType", "Nuevo Type: ") @Html.DropDownList("newType", EnumHelper.GetSelectList(typeof(InvoiceViewModels.Types)));<br />
+    <input type="submit" value="Submit" />
+    
+}

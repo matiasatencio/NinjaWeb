@@ -1,0 +1,19 @@
+﻿@using GridMvc.Html
+@model IEnumerable<ninja.Models.InvoiceDetailViewModels>
+@{
+    ViewBag.Title = "Detail";
+}
+
+<h2>Detail</h2>
+
+@Html.Grid(Model).Columns(columns =>
+{
+    columns.Add(c => c.Taxes).Titled("Taxes");
+    columns.Add(c => c.InvoiceId).Titled("InvoiceId");
+    columns.Add(c => c.Id).Titled("Id");
+    columns.Add(c => c.Description).Titled("Description");
+    columns.Add(c => c.Amount).Titled("Amount");
+    columns.Add(c => c.UnitPrice).Titled("UnitPrice");
+    columns.Add(c => c.TotalPrice).Titled("TotalPrice");
+    columns.Add(c => c.TotalPriceWithTaxes).Titled("TotalPriceWithTaxes");
+})

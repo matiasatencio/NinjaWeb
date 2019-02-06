@@ -1,0 +1,11 @@
+﻿@using GridMvc.Html
+
+@model IEnumerable<ninja.Models.InvoiceViewModels>
+
+@Html.Grid(Model).Columns(columns =>
+{
+    columns.Add(c => c.Id).Titled("Id");
+    columns.Add(c => c.Type).Titled("Type").Filterable(true);
+    columns.Add().Titled("Edit").Encoded(false).Sanitized(false).RenderValueAs(c => @Html.ActionLink("Edit", "Update", "Update", new { id = c.Id, type = c.Type }, null));
+}).WithPaging(3).Sortable(true)
+

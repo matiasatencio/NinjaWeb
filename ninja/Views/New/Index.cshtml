@@ -1,0 +1,19 @@
+﻿@model ninja.Models.InvoiceViewModels
+@using ninja.model.Entity
+@{
+    ViewBag.Title = "New";
+}
+
+<h2>New</h2>
+
+@using (Html.BeginForm("New", "New", FormMethod.Post))
+{
+    @Html.TextBoxFor(model => model.Id, "", null)
+    @Html.DropDownListFor(m => m.Type,
+                        new SelectList(Enum.GetValues(typeof(Invoice.Types))),
+                        "Elegir tipo")
+
+    <input type="submit" value="Crear" />
+}
+
+
